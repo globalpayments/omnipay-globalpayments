@@ -25,8 +25,12 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
      */
     public function setCard($value)
     {
-        if ($value && !$value instanceof CreditCard) {
-            $value = new CreditCard($value);
+        if ($value) {
+            if ($value instanceof \Omnipay\Common\CreditCard) {
+                $value = new CreditCard($value->getParameters());
+            } else if (!$value instanceof CreditCard) {
+                $value = new CreditCard($value);
+            }
         }
 
         return $this->setParameter('card', $value);
