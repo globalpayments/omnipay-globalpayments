@@ -70,7 +70,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
             $gpAddyObj->streetAddress1 = $omnipayCardObj->getBillingAddress1();
             $gpAddyObj->streetAddress2 = $omnipayCardObj->getBillingAddress2();
             $gpAddyObj->city = $omnipayCardObj->getBillingCity();
-            $gpAddyObj->postalCode = $omnipayCardObj->getBillingPostcode();
+            $gpAddyObj->postalCode = str_replace(' ', '', $omnipayCardObj->getBillingPostcode());
             $gpAddyObj->state = $omnipayCardObj->getBillingState();
             $gpAddyObj->country = $omnipayCardObj->getBillingCountry();
         }
