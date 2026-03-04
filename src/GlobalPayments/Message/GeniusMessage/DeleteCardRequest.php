@@ -9,5 +9,5 @@ class DeleteCardRequest extends AbstractGeniusRequest
         $chargeMe = $this->gpCardObj;
 
         return $chargeMe->deleteToken($chargeMe);
-    }    
+    }
 }

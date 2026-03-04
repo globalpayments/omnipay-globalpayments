@@ -67,42 +67,48 @@ class TransitGateway extends AbstractGateway
     public function purchase($options = array())
     {
         return $this->createRequest(
-            $this->transitMessagePath . '\PurchaseRequest', $options
+            $this->transitMessagePath . '\PurchaseRequest',
+            $options
         );
     }
 
     public function authorize($options = array())
     {
         return $this->createRequest(
-            $this->transitMessagePath . '\AuthorizeRequest', $options
+            $this->transitMessagePath . '\AuthorizeRequest',
+            $options
         );
     }
 
     public function capture($options = array())
     {
         return $this->createRequest(
-            $this->transitMessagePath . '\CaptureRequest', $options
+            $this->transitMessagePath . '\CaptureRequest',
+            $options
         );
     }
 
     public function void($options = array())
     {
         return $this->createRequest(
-            $this->transitMessagePath . '\VoidRequest', $options
+            $this->transitMessagePath . '\VoidRequest',
+            $options
         );
     }
-    
+
     public function refund($options = array())
     {
         return $this->createRequest(
-            $this->transitMessagePath . '\RefundRequest', $options
+            $this->transitMessagePath . '\RefundRequest',
+            $options
         );
     }
 
     public function createCard($options = array())
     {
         return $this->createRequest(
-            $this->transitMessagePath . '\CreateCardRequest', $options
+            $this->transitMessagePath . '\CreateCardRequest',
+            $options
         );
     }
 }

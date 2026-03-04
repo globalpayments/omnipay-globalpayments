@@ -10,7 +10,7 @@ class GeniusResponse extends AbstractResponse
     {
         if (!empty($this->getTransactionReference()) && strpos($this->response->responseMessage, 'FAILED') === false) {
             return true;
-        } elseif($this->request instanceof CreateCardRequest) {
+        } elseif ($this->request instanceof CreateCardRequest) {
             return !empty($this->getCardReference());
         }
 

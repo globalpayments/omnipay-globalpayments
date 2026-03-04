@@ -16,7 +16,7 @@ $gateway->setTransactionKey('DPJLWWAD1MOAX8XPCHZAXP15U0UME5U0');
  * CreditCard class. However, when using the Transit gateway specifically (as
  * this example does) it is important to use one additional parameter: 'type'.
  * This allows the proper elements to be sent for specific card brands as required
- * by the Transit gateway. 
+ * by the Transit gateway.
  */
 
 $formData = array(

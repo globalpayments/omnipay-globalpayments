@@ -15,9 +15,8 @@ abstract class AbstractGeniusRequest extends AbstractRequest
         $config->merchantName = $this->getMerchantName();
         $config->merchantSiteId = $this->getMerchantSiteId();
         $config->merchantKey = $this->getMerchantKey();
-        $config->developerId = $this->getDeveloperId();
         $config->gatewayProvider = GatewayProvider::GENIUS;
-        
+
         ServicesContainer::configureService($config);
     }
 
@@ -40,7 +39,7 @@ abstract class AbstractGeniusRequest extends AbstractRequest
     {
         return $this->setParameter('merchantSiteId', $value);
     }
-    
+
     public function getMerchantKey()
     {
         return $this->getParameter('merchantKey');

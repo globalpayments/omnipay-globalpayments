@@ -3,14 +3,15 @@
 namespace Omnipay\GlobalPayments\Message;
 
 use GlobalPayments\Api\Entities\Transaction;
-use Omnipay\Common\Message\AbstractResponse;
+// use Omnipay\Common\Message\AbstractResponse;
+use Omnipay\GlobalPayments\Message\AbstractResponse;
 use Omnipay\GlobalPayments\Message\HeartlandMessage\UpdateCardRequest as HeartlandUpdateCardRequest;
 use Omnipay\GlobalPayments\Message\HeartlandMessage\DeleteCardRequest as HeartlandDeleteCardRequest;
 
 class Response extends AbstractResponse
 {
     public function __construct($request, $data)
-    {        
+    {
         $this->request = $request;
         $this->response = $data;
     }
@@ -19,9 +20,13 @@ class Response extends AbstractResponse
     {
         if ($this->response instanceof Transaction) {
             return in_array(
-                $this->response->responseCode, $this->request->getGoodReponseCodes()
+                $this->response->responseCode,
+                $this->request->getGoodReponseCodes()
             );
-        } elseif ($this->request instanceof HeartlandDeleteCardRequest || $this->request instanceof HeartlandUpdateCardRequest) {
+        } elseif (
+            $this->request instanceof HeartlandDeleteCardRequest
+            || $this->request instanceof HeartlandUpdateCardRequest
+        ) {
             return $this->response;
         }
 
@@ -32,7 +37,7 @@ class Response extends AbstractResponse
     {
         return $this->response->responseMessage;
     }
-    
+
     public function getCode()
     {
         return $this->response->responseCode;

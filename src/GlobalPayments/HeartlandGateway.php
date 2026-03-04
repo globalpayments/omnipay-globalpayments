@@ -29,7 +29,7 @@ class HeartlandGateway extends AbstractGateway
     }
 
     // Methods for setting Gateway Authentication properties
-    
+
     public function setSecretApiKey($value)
     {
         return $this->setParameter('secretApiKey', $value);
@@ -76,61 +76,70 @@ class HeartlandGateway extends AbstractGateway
     {
         if (isset($options['check'])) {
             return $this->createRequest(
-                $this->heartlandMessagePath . '\ACHPurchaseRequest', $options
+                $this->heartlandMessagePath . '\ACHPurchaseRequest',
+                $options
             );
         }
 
         return $this->createRequest(
-            $this->heartlandMessagePath . '\PurchaseRequest', $options
+            $this->heartlandMessagePath . '\PurchaseRequest',
+            $options
         );
     }
 
     public function authorize($options = array())
     {
         return $this->createRequest(
-            $this->heartlandMessagePath . '\AuthorizeRequest', $options
+            $this->heartlandMessagePath . '\AuthorizeRequest',
+            $options
         );
     }
 
     public function capture($options = array())
     {
         return $this->createRequest(
-            $this->heartlandMessagePath . '\CaptureRequest', $options
+            $this->heartlandMessagePath . '\CaptureRequest',
+            $options
         );
     }
 
     public function void($options = array())
     {
         return $this->createRequest(
-            $this->heartlandMessagePath . '\VoidRequest', $options
+            $this->heartlandMessagePath . '\VoidRequest',
+            $options
         );
     }
 
     public function refund($options = array())
     {
         return $this->createRequest(
-            $this->heartlandMessagePath . '\RefundRequest', $options
+            $this->heartlandMessagePath . '\RefundRequest',
+            $options
         );
     }
 
     public function createCard($options = array())
     {
         return $this->createRequest(
-            $this->heartlandMessagePath . '\CreateCardRequest', $options
+            $this->heartlandMessagePath . '\CreateCardRequest',
+            $options
         );
     }
 
     public function updateCard($options = array())
     {
         return $this->createRequest(
-            $this->heartlandMessagePath . '\UpdateCardRequest', $options
+            $this->heartlandMessagePath . '\UpdateCardRequest',
+            $options
         );
     }
 
     public function deleteCard($options = array())
     {
         return $this->createRequest(
-            $this->heartlandMessagePath . '\DeleteCardRequest', $options
+            $this->heartlandMessagePath . '\DeleteCardRequest',
+            $options
         );
     }
 }

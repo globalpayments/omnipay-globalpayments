@@ -9,5 +9,5 @@ class UpdateCardRequest extends AbstractGeniusRequest
         $chargeMe = $this->gpCardObj;
 
         return $chargeMe->updateTokenExpiry($chargeMe);
-    }    
+    }
 }

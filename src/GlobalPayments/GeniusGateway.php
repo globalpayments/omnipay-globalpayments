@@ -22,7 +22,7 @@ class GeniusGateway extends AbstractGateway
             'developerId' => '',
             'versionNumber' => '',
         );
-    }    
+    }
 
     // Methods for setting Gateway Authentication properties
 
@@ -52,46 +52,52 @@ class GeniusGateway extends AbstractGateway
     }
 
     // Transactions
-    
+
     public function purchase($options = array())
     {
         return $this->createRequest(
-            $this->geniusMessagePath . '\PurchaseRequest', $options
+            $this->geniusMessagePath . '\PurchaseRequest',
+            $options
         );
     }
 
     public function authorize($options = array())
     {
         return $this->createRequest(
-            $this->geniusMessagePath . '\AuthorizeRequest', $options
+            $this->geniusMessagePath . '\AuthorizeRequest',
+            $options
         );
     }
 
     public function capture($options = array())
     {
         return $this->createRequest(
-            $this->geniusMessagePath . '\CaptureRequest', $options
+            $this->geniusMessagePath . '\CaptureRequest',
+            $options
         );
     }
 
     public function void($options = array())
     {
         return $this->createRequest(
-            $this->geniusMessagePath . '\VoidRequest', $options
+            $this->geniusMessagePath . '\VoidRequest',
+            $options
         );
     }
-    
+
     public function refund($options = array())
     {
         return $this->createRequest(
-            $this->geniusMessagePath . '\RefundRequest', $options
+            $this->geniusMessagePath . '\RefundRequest',
+            $options
         );
     }
 
     public function createCard($options = array())
     {
         return $this->createRequest(
-            $this->geniusMessagePath . '\CreateCardRequest', $options
+            $this->geniusMessagePath . '\CreateCardRequest',
+            $options
         );
     }
 }

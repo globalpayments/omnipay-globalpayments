@@ -21,9 +21,9 @@ class CreditCard extends CommonCreditCard
 
     /**
      * Sets card brand; required for TransIt Gateway
-     * 
+     *
      * @param string $value card brand.
-     * 
+     *
      * @return $this
      */
     public function setType($value)
@@ -43,9 +43,9 @@ class CreditCard extends CommonCreditCard
 
     /**
      * Sets mobile wallet type
-     * 
+     *
      * @param string $value mobile type (ApplePay / GooglePay)
-     * 
+     *
      * @return $this
      */
     public function setMobileType($value)
@@ -66,9 +66,9 @@ class CreditCard extends CommonCreditCard
     /**
      * Sets card brand trans Id.
      * This is required for Card-On-File transactions
-     * 
+     *
      * @param string $value card brand.
-     * 
+     *
      * @return $this
      */
     public function setCardBrandTransId($value)
@@ -89,9 +89,9 @@ class CreditCard extends CommonCreditCard
     /**
      * Set StoredCredentialInitiator value.
      * This is required for Card-On-File transactions.
-     * 
+     *
      * @param string $value card brand.
-     * 
+     *
      * @return $this
      */
     public function setStoredCredInitiator($value)

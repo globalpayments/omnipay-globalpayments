@@ -23,7 +23,7 @@ class ECheck extends CommonCreditCard
 
     /**
      * @param string $value
-     * 
+     *
      * @return $this
      */
     public function setAccountNumber($value)
@@ -41,7 +41,7 @@ class ECheck extends CommonCreditCard
 
     /**
      * @param string $value
-     * 
+     *
      * @return $this
      */
     public function setRoutingNumber($value)
@@ -59,7 +59,7 @@ class ECheck extends CommonCreditCard
 
     /**
      * @param AccountType $value
-     * 
+     *
      * @return $this
      */
     public function setAccountType($value)
@@ -77,7 +77,7 @@ class ECheck extends CommonCreditCard
 
     /**
      * @param SecCode $value
-     * 
+     *
      * @return $this
      */
     public function setSecCode($value)
@@ -95,7 +95,7 @@ class ECheck extends CommonCreditCard
 
     /**
      * @param CheckType $value
-     * 
+     *
      * @return $this
      */
     public function setCheckType($value)
@@ -113,7 +113,7 @@ class ECheck extends CommonCreditCard
 
     /**
      * @param string $value
-     * 
+     *
      * @return $this
      */
     public function setCheckHolderName($value)

@@ -11,7 +11,8 @@ class TransitResponse extends AbstractResponse
     {
         if ($this->response instanceof Transaction) {
             return in_array(
-                $this->response->responseCode, $this->request->getGoodReponseCodes()
+                $this->response->responseCode,
+                $this->request->getGoodReponseCodes()
             );
         }
 

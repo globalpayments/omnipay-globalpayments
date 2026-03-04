@@ -12,7 +12,7 @@ $gateway->setMerchantKey('AT6AN-ALYJE-YF3AW-3M5NN-UQDG1');
 
 /**
  * Voids are processed using basic Omnipay methodology, simply pass in
- * the target transaction's reference number. 
+ * the target transaction's reference number.
  */
 
 $formData = array(
@@ -50,7 +50,7 @@ $voidResponse = $gateway->void(
 
 if ($voidResponse->isSuccessful()) {
     echo 'Transaction successfully voided!' . PHP_EOL;
-    echo 'Transaction ID for the purchase is: '. $purchaseResponse->getTransactionReference() . PHP_EOL;
+    echo 'Transaction ID for the purchase is: ' . $purchaseResponse->getTransactionReference() . PHP_EOL;
     echo 'Transaction ID for the refund is: ' . $voidResponse->getTransactionReference();
 } else {
     echo 'Failure! Something went wrong: ' . $response->getMessage();

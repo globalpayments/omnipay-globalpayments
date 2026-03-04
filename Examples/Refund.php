@@ -10,7 +10,7 @@ $gateway->setSecretApiKey('skapi_cert_McU0AgBkx2EAldEfhhtolMw0RnvahBQAnXFdLYga-Q
 
 /**
  * Refunds are processed using basic Omnipay methodology, simply pass in
- * the target transaction's reference number. 
+ * the target transaction's reference number.
  */
 
 $formData = array(
@@ -51,7 +51,7 @@ $refundResponse = $gateway->refund(
 
 if ($refundResponse->isSuccessful()) {
     echo 'Transaction successfully refunded!' . PHP_EOL;
-    echo 'Transaction ID for the purchase is: '. $purchaseResponse->getTransactionReference() . PHP_EOL;
+    echo 'Transaction ID for the purchase is: ' . $purchaseResponse->getTransactionReference() . PHP_EOL;
     echo 'Transaction ID for the refund is: ' . $refundResponse->getTransactionReference();
 } else {
     echo 'Failure! Something went wrong: ' . $response->getMessage();

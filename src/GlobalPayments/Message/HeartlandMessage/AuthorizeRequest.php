@@ -8,14 +8,24 @@ class AuthorizeRequest extends AbstractHeartlandRequest
     {
         $this->setGoodResponseCodes(array('00', '10'));
 
-        $chargeMe = $this->gpCardObj;
+        $chargeMe = $this->gpCardObj->authorize($this->getAmount());
 
-        return $chargeMe->authorize($this->getAmount())
-            ->withAddress($this->gpBillingAddyObj)
-            ->withCurrency($this->getCurrency())
-            ->withDescription($this->getDescription())
-            ->withClientTransactionId($this->getTransactionId())
-            ->withStoredCredential($this->gpStoredCredObj)
-            ->execute();
+        if (!empty($this->getCurrency())) {
+            $chargeMe = $chargeMe->withCurrency($this->getCurrency());
+        }
+        if (!empty($this->gpBillingAddyObj)) {
+            $chargeMe = $chargeMe->withAddress($this->gpBillingAddyObj);
+        }
+        if (!empty($this->getDescription())) {
+            $chargeMe = $chargeMe->withDescription($this->getDescription());
+        }
+        if (!empty($this->getTransactionId())) {
+            $chargeMe = $chargeMe->withClientTransactionId($this->getTransactionId());
+        }
+        if (!empty($this->gpStoredCredObj)) {
+            $chargeMe = $chargeMe->withStoredCredential($this->gpStoredCredObj);
+        }
+
+        return $chargeMe->execute();
     }
 }

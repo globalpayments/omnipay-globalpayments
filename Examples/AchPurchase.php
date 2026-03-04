@@ -36,7 +36,7 @@ $eCheck->setRoutingNumber('122000030');
 
 $response = $gateway->purchase(
     array(
-        'check' =>$eCheck,
+        'check' => $eCheck,
         'currency' => 'USD',
         'amount' => '56.78',
         'description' => 'AchPurchase.php example'

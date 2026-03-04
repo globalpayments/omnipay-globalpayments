@@ -18,7 +18,7 @@ abstract class AbstractTransitRequest extends AbstractRequest
         $config->deviceId = $this->getDeviceId();
         $config->developerId = $this->getDeveloperId();
         $config->acceptorConfig = new AcceptorConfig();
-        
+
         if (!empty($this->getTransactionKey())) {
             $config->transactionKey = $this->getTransactionKey();
         } else {
@@ -27,10 +27,10 @@ abstract class AbstractTransitRequest extends AbstractRequest
             $response = $provider->getTransactionKey();
             $config->transactionKey = $response->transactionKey;
         }
-        
+
         ServicesContainer::configureService($config);
     }
-    
+
     public function getMerchantId()
     {
         return $this->getParameter('merchantId');

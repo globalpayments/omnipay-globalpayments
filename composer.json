@@ -20,11 +20,23 @@
             "Omnipay\\GlobalPayments\\": "src/GlobalPayments/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Omnipay\\GlobalPayments\\Tests\\": "Tests/"
+        }
+    },
     "require-dev": {
-        "omnipay/tests": "^3.1"
+        "omnipay/tests": "*",
+        "squizlabs/php_codesniffer": "3.*"
     },
     "require": {
-        "league/omnipay": "^3.0",
-        "globalpayments/php-sdk": "^2.2"
+        "league/omnipay": "^3",
+        "globalpayments/php-sdk": "^14",
+        "php": ">= 8.2"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
     }
 }

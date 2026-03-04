@@ -13,9 +13,13 @@ class HeartlandResponse extends AbstractResponse
     {
         if ($this->response instanceof Transaction) {
             return in_array(
-                $this->response->responseCode, $this->request->getGoodReponseCodes()
+                $this->response->responseCode,
+                $this->request->getGoodReponseCodes()
             );
-        } elseif ($this->request instanceof HeartlandDeleteCardRequest || $this->request instanceof HeartlandUpdateCardRequest) {
+        } elseif (
+            $this->request instanceof HeartlandDeleteCardRequest
+            || $this->request instanceof HeartlandUpdateCardRequest
+        ) {
             return $this->response;
         }
 

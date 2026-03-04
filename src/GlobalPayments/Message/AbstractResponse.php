@@ -6,6 +6,8 @@ use Omnipay\Common\Message\AbstractResponse as CommonAbstractResponse;
 
 abstract class AbstractResponse extends CommonAbstractResponse
 {
+    protected $response;
+
     public function __construct($request, $data)
     {
         $this->request = $request;
@@ -18,7 +20,7 @@ abstract class AbstractResponse extends CommonAbstractResponse
     {
         return $this->response->responseMessage;
     }
-    
+
     public function getCode()
     {
         return $this->response->responseCode;

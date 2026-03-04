@@ -14,13 +14,13 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     protected $gpCardObj;
     protected $gpStoredCredObj;
 
-    protected abstract function runTrans();
-    protected abstract function setServicesConfig();
+    abstract protected function runTrans();
+    abstract protected function setServicesConfig();
 
     /**
      * Overrides parent class method to create a Omnipay\GlobalPayments\CreditCard.
      *
-     * @param CreditCard $value
+     * @param  CreditCard $value
      * @return $this
      */
     public function setCard($value)
@@ -38,12 +38,16 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 
         if ($this->getCard()) {
             $omnipayCardObj = $this->getCard();
-            
+
             $gpCardObj->number = $omnipayCardObj->getNumber();
             $gpCardObj->expMonth = $omnipayCardObj->getExpiryMonth();
             $gpCardObj->expYear = $omnipayCardObj->getExpiryYear();
             $gpCardObj->cvn = $omnipayCardObj->getCvv();
-            $gpCardObj->cardHolderName = sprintf('%s %s', $omnipayCardObj->getFirstName(), $omnipayCardObj->getLastName());
+            $gpCardObj->cardHolderName = sprintf(
+                '%s %s',
+                $omnipayCardObj->getFirstName(),
+                $omnipayCardObj->getLastName()
+            );
             $gpCardObj->cardType = $omnipayCardObj->getType();
         }
 
@@ -80,7 +84,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 
         if ($this->getCard()) {
             $omnipayCardObj = $this->getCard();
-            
+
             if (!empty($omnipayCardObj->getCardBrandTransId())) {
                 $gpStoredCredObj->cardBrandTransactionId = $omnipayCardObj->getCardBrandTransId();
             }

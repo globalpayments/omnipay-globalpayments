@@ -6,13 +6,18 @@ class CreateCardRequest extends AbstractGeniusRequest
 {
     public function runTrans()
     {
-        $chargeMe = $this->gpCardObj;
+        $chargeMe = $this->gpCardObj->verify()->withRequestMultiUseToken(true);
 
-        return $chargeMe->verify()
-            ->withRequestMultiUseToken(true)
-            ->withAddress($this->gpBillingAddyObj)
-            ->withDescription($this->getDescription())
-            ->withClientTransactionId($this->getTransactionId())
-            ->execute();
-    }    
+        if (!empty($this->gpBillingAddyObj)) {
+            $chargeMe = $chargeMe->withAddress($this->gpBillingAddyObj);
+        }
+        if (!empty($this->getDescription())) {
+            $chargeMe = $chargeMe->withDescription($this->getDescription());
+        }
+        if (!empty($this->getTransactionId())) {
+            $chargeMe = $chargeMe->withClientTransactionId($this->getTransactionId());
+        }
+
+        return $chargeMe->execute();
+    }
 }
